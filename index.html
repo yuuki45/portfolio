@@ -1,0 +1,432 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<!-- cspell:ignore Yuuki Morphica palt topbar nums -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ゆーき — Indie Developer</title>
+<meta name="description" content="個人開発者＠ゆーき のポートフォリオ。広島で会社員をしながら、iOS と Web のアプリを作っています。">
+<meta name="theme-color" content="#f7f1e3" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#231f1c" media="(prefers-color-scheme: dark)">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="個人開発者＠ゆーき — Portfolio">
+<meta property="og:description" content="会社員、ときどき個人開発者。AI と二人三脚で、アプリつくってます。">
+<meta property="og:image" content="assets/avatar.png">
+<meta name="twitter:card" content="summary">
+
+<link rel="icon" type="image/png" href="assets/avatar.png">
+<link rel="apple-touch-icon" href="assets/avatar.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;600&family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg:        oklch(0.975 0.008 75);
+  --bg-2:      oklch(0.950 0.012 72);
+  --ink:       oklch(0.16 0.012 60);
+  --ink-2:     oklch(0.28 0.010 60);
+  --ink-3:     oklch(0.45 0.008 60);
+  --line:      oklch(0.78 0.012 70);
+  --line-2:    oklch(0.88 0.010 70);
+  --accent:    oklch(0.60 0.130 55);
+  --accent-ink:oklch(0.48 0.130 50);
+}
+html[data-theme="dark"] {
+  --bg:        oklch(0.17 0.010 60);
+  --bg-2:      oklch(0.22 0.012 60);
+  --ink:       oklch(0.97 0.008 80);
+  --ink-2:     oklch(0.86 0.010 70);
+  --ink-3:     oklch(0.64 0.010 65);
+  --line:      oklch(0.38 0.010 65);
+  --line-2:    oklch(0.30 0.010 60);
+  --accent:    oklch(0.74 0.130 55);
+  --accent-ink:oklch(0.82 0.120 55);
+}
+
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+body {
+  font-family: "Noto Serif JP", "Hiragino Mincho ProN", "Yu Mincho", serif;
+  background: var(--bg);
+  color: var(--ink);
+  font-weight: 400;
+  font-feature-settings: "palt" 1;
+  font-optical-sizing: auto;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  min-height: 100vh;
+  transition: background 400ms ease, color 400ms ease;
+}
+
+::selection { background: oklch(0.60 0.130 55 / 0.22); color: var(--ink); }
+
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 4px;
+  border-radius: 2px;
+}
+
+html[data-lang="ja"] .i18n-en,
+html[data-lang="en"] .i18n-ja { display: none; }
+
+.en { font-family: "EB Garamond", "Noto Serif JP", serif; font-style: italic; letter-spacing: 0.01em; }
+a { color: inherit; text-decoration: none; }
+
+.frame {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 72px 28px 96px;
+}
+@media (max-width: 560px) {
+  .frame { padding: 48px 22px 72px; }
+}
+
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 72px;
+  font-size: 13px;
+  color: var(--ink-2);
+  letter-spacing: 0.06em;
+}
+.bar-actions { display: flex; gap: 8px; align-items: center; }
+.pill {
+  appearance: none; border: 1px solid var(--line);
+  background: transparent; color: var(--ink-2);
+  padding: 6px 14px;
+  font: inherit; font-size: 11px; letter-spacing: 0.16em;
+  cursor: pointer;
+  border-radius: 999px;
+  transition: all 200ms ease;
+  font-family: "EB Garamond", serif; font-style: italic;
+}
+.pill:hover { border-color: var(--accent); color: var(--accent-ink); }
+
+.hero { margin-bottom: 80px; text-align: center; }
+.avatar {
+  width: 72px; height: 72px;
+  border-radius: 50%;
+  margin: 0 auto 28px;
+  background: var(--bg-2);
+  border: 1px solid var(--line);
+  overflow: hidden;
+  display: block;
+  object-fit: cover;
+}
+.name-ja {
+  font-size: clamp(30px, 5vw, 40px);
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+  margin: 0 0 8px;
+  color: var(--ink);
+}
+.name-en {
+  font-family: "EB Garamond", serif;
+  font-style: italic;
+  font-size: 16px;
+  color: var(--ink-3);
+  margin-bottom: 28px;
+}
+.tagline {
+  max-width: 460px;
+  margin: 0 auto;
+  font-size: 15px;
+  line-height: 1.9;
+  color: var(--ink-2);
+  text-wrap: pretty;
+}
+
+.sec-head {
+  display: flex;
+  align-items: baseline;
+  gap: 16px;
+  margin-bottom: 28px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid var(--line);
+}
+.sec-head .ja {
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  color: var(--ink);
+}
+.sec-head .en {
+  color: var(--ink-3);
+  font-size: 13px;
+}
+
+section { margin-bottom: 64px; }
+
+.works { display: flex; flex-direction: column; }
+.work {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 24px;
+  padding: 22px 2px;
+  border-bottom: 1px solid var(--line-2);
+  transition: padding 220ms ease;
+}
+.work:last-child { border-bottom: none; }
+.work:hover { padding-left: 10px; }
+.work:hover .work-arrow { color: var(--accent-ink); transform: translateX(4px); }
+
+.work-body { flex: 1; min-width: 0; }
+.work-name {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--ink);
+  margin-bottom: 6px;
+  letter-spacing: 0.01em;
+}
+.work-name .pl {
+  font-family: "EB Garamond", serif;
+  font-style: italic;
+  font-size: 12px;
+  color: var(--accent-ink);
+  font-weight: 400;
+  margin-left: 10px;
+  letter-spacing: 0.06em;
+}
+.work-desc {
+  font-size: 13px;
+  line-height: 1.8;
+  color: var(--ink-2);
+  text-wrap: pretty;
+  font-variant-numeric: tabular-nums;
+}
+.work-arrow {
+  font-family: "EB Garamond", serif;
+  font-style: italic;
+  font-size: 18px;
+  color: var(--ink-3);
+  transition: transform 220ms ease, color 220ms ease;
+  flex-shrink: 0;
+}
+
+@media (max-width: 560px) {
+  .work { flex-direction: column; gap: 10px; align-items: stretch; }
+  .work-arrow { align-self: flex-end; }
+}
+
+.about-body {
+  font-size: 14px;
+  line-height: 2.0;
+  color: var(--ink-2);
+  text-wrap: pretty;
+}
+.about-body p { margin: 0; }
+.about-body p + p { margin-top: 1.4em; }
+
+.links {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0;
+  border-top: 1px solid var(--line-2);
+}
+.link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 4px;
+  border-bottom: 1px solid var(--line-2);
+  font-size: 15px;
+  color: var(--ink);
+  letter-spacing: 0.02em;
+  transition: color 200ms ease, padding 220ms ease;
+}
+.link:nth-child(odd) { border-right: 1px solid var(--line-2); padding-right: 20px; }
+.link:nth-child(even) { padding-left: 20px; }
+.link:hover { color: var(--accent-ink); }
+.link:hover .link-arrow { transform: translate(3px, -3px); color: var(--accent-ink); }
+.link-arrow {
+  font-family: "EB Garamond", serif;
+  font-style: italic;
+  font-size: 14px;
+  color: var(--ink-3);
+  transition: transform 220ms ease, color 220ms ease;
+}
+@media (max-width: 560px) {
+  .links { grid-template-columns: 1fr; }
+  .link:nth-child(odd) { border-right: none; padding-right: 4px; }
+  .link:nth-child(even) { padding-left: 4px; }
+}
+
+.foot {
+  margin-top: 80px;
+  padding-top: 28px;
+  border-top: 1px solid var(--line);
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  color: var(--ink-3);
+  letter-spacing: 0.08em;
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity 800ms cubic-bezier(.2,.7,.2,1), transform 800ms cubic-bezier(.2,.7,.2,1);
+}
+.reveal.in { opacity: 1; transform: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal { opacity: 1; transform: none; transition: none; }
+  .work, .work-arrow, .link, .link-arrow, .theme-toggle,
+  body { transition: none; }
+}
+</style>
+</head>
+<body>
+
+<script>
+(function() {
+  var t = localStorage.getItem('yk-theme') || 'light';
+  document.documentElement.setAttribute('data-theme', t);
+  var l = localStorage.getItem('yk-lang') || 'ja';
+  document.documentElement.setAttribute('data-lang', l);
+  document.documentElement.setAttribute('lang', l);
+})();
+</script>
+
+<div class="frame">
+
+  <header class="topbar reveal">
+    <span class="en">Portfolio · 2026</span>
+    <div class="bar-actions">
+      <button class="pill" id="langToggle" aria-label="Toggle language">JA / EN</button>
+      <button class="pill" id="themeToggle" aria-label="Toggle theme">Light / Dark</button>
+    </div>
+  </header>
+
+  <section class="hero reveal">
+    <img class="avatar" src="assets/avatar.png" alt="Yuuki" width="72" height="72">
+    <h1 class="name-ja">
+      <span class="i18n-ja">個人開発者＠ゆーき</span>
+      <span class="i18n-en">Yuuki</span>
+    </h1>
+    <div class="name-en">
+      <span class="i18n-ja">Yuuki — Independent Developer, Hiroshima</span>
+      <span class="i18n-en">Indie Developer · Hiroshima, Japan</span>
+    </div>
+    <p class="tagline">
+      <span class="i18n-ja">
+        会社員、ときどき個人開発者。<br>
+        AI と二人三脚で、アプリつくってます。
+      </span>
+      <span class="i18n-en">
+        Full-time employee, sometimes indie developer.<br>
+        Building apps side by side with AI.
+      </span>
+    </p>
+  </section>
+
+  <section class="reveal">
+    <div class="sec-head">
+      <span class="ja">作 品</span>
+      <span class="en">Works</span>
+    </div>
+    <div class="works">
+      <a class="work" href="https://apps.apple.com/jp/app/ai%E7%94%BB%E5%83%8F%E7%94%9F%E6%88%90-morphica/id6755958732" target="_blank" rel="noopener">
+        <div class="work-body">
+          <div class="work-name">Morphica <span class="pl">iOS</span></div>
+          <div class="work-desc">
+            <span class="i18n-ja">写真を選ぶだけ、ワンタップで AI 画像生成。プロンプト不要、42 種のスタイル＋カスタム対応。</span>
+            <span class="i18n-en">Turn photos into AI-generated art in a single tap. No prompt required — 42+ styles plus custom options.</span>
+          </div>
+        </div>
+        <div class="work-arrow">↗</div>
+      </a>
+      <a class="work" href="https://app-store-manager-dun.vercel.app/" target="_blank" rel="noopener">
+        <div class="work-body">
+          <div class="work-name">App Store Manager <span class="pl">Web</span></div>
+          <div class="work-desc">
+            <span class="i18n-ja">App Store Connect のメタデータを AI で一括翻訳し、そのまま反映。スクリーンショットの翻訳・生成にも対応。</span>
+            <span class="i18n-en">Bulk-translate App Store Connect metadata with AI and push it back in place. Handles screenshot translation and generation too.</span>
+          </div>
+        </div>
+        <div class="work-arrow">↗</div>
+      </a>
+      <a class="work" href="https://www.app-village.jp/" target="_blank" rel="noopener">
+        <div class="work-body">
+          <div class="work-name">App Village <span class="pl">Web</span></div>
+          <div class="work-desc">
+            <span class="i18n-ja">個人開発アプリを紹介し、応援し合えるコミュニティ型プラットフォーム。</span>
+            <span class="i18n-en">A community platform where indie devs showcase their apps and cheer each other on.</span>
+          </div>
+        </div>
+        <div class="work-arrow">↗</div>
+      </a>
+    </div>
+  </section>
+
+  <section class="reveal">
+    <div class="sec-head">
+      <span class="ja">自 己 紹 介</span>
+      <span class="en">About</span>
+    </div>
+    <div class="about-body">
+      <div class="i18n-ja">
+        <p>はじめまして、ゆーきです。広島で会社員として働きながら、個人開発でアプリ制作をしています。もともとエンジニアではなく、5 年ほど前に「何かスキルを身につけたい」と思ったのがプログラミングとの出会いでした。</p>
+        <p>HTML・CSS・JavaScript・WordPress を仕事の合間にコツコツ学び、やがて Web 制作の案件を受けるように。会社の力に頼らず自分の力だけで収益を得られた経験は、大きな自信になりました。今は AI を活用しながら、iOS と Web のアプリ制作に取り組んでいます。</p>
+      </div>
+      <div class="i18n-en">
+        <p>Hi, I'm Yuuki. I work a full-time job in Hiroshima while building apps as an indie developer on the side. I didn't start out as an engineer — programming found me about five years ago, when I went looking for a skill to call my own.</p>
+        <p>I studied HTML, CSS, JavaScript, and WordPress in the pockets between workdays, and eventually started taking on web production jobs — the first time I earned income entirely on my own. That experience became a quiet source of confidence. These days I build iOS and web apps with AI as my co-pilot.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="reveal">
+    <div class="sec-head">
+      <span class="ja">各 種 リ ン ク</span>
+      <span class="en">Links</span>
+    </div>
+    <div class="links">
+      <a class="link" href="https://x.com/hello__world_0" target="_blank" rel="noopener"><span>X</span><span class="link-arrow">↗</span></a>
+      <a class="link" href="https://www.tiktok.com/@morphica22" target="_blank" rel="noopener"><span>TikTok</span><span class="link-arrow">↗</span></a>
+      <a class="link" href="https://note.com/yuuki04050" target="_blank" rel="noopener"><span>note</span><span class="link-arrow">↗</span></a>
+      <a class="link" href="https://github.com/yuuki45" target="_blank" rel="noopener"><span>GitHub</span><span class="link-arrow">↗</span></a>
+      <a class="link" href="https://apps.apple.com/jp/developer/yuuki-odan/id1833891715" target="_blank" rel="noopener"><span>App Store</span><span class="link-arrow">↗</span></a>
+    </div>
+  </section>
+
+  <footer class="foot reveal">
+    <span class="en">© 2026 Yuuki</span>
+    <span class="en">Made in Hiroshima</span>
+  </footer>
+
+</div>
+
+<script>
+(function () {
+  const root = document.documentElement;
+
+  document.getElementById('themeToggle')?.addEventListener('click', () => {
+    const next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+    root.setAttribute('data-theme', next);
+    localStorage.setItem('yk-theme', next);
+  });
+
+  document.getElementById('langToggle')?.addEventListener('click', () => {
+    const next = root.getAttribute('data-lang') === 'ja' ? 'en' : 'ja';
+    root.setAttribute('data-lang', next);
+    root.setAttribute('lang', next);
+    localStorage.setItem('yk-lang', next);
+  });
+
+  const reveals = document.querySelectorAll('.reveal');
+  reveals.forEach((el, i) => {
+    el.style.transitionDelay = Math.min(i * 90, 700) + 'ms';
+    requestAnimationFrame(() => requestAnimationFrame(() => el.classList.add('in')));
+  });
+})();
+</script>
+
+</body>
+</html>

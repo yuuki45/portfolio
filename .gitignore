@@ -1,0 +1,6 @@
+# macOS
+.DS_Store
+
+# design handoff artifacts
+design
+design_bundle/
