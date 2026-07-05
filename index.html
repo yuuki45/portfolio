@@ -6,8 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>ゆーき — Indie Developer</title>
 <meta name="description" content="個人開発者＠ゆーき のポートフォリオ。広島で会社員をしながら、iOS と Web のアプリを作っています。">
-<meta name="theme-color" content="#f7f1e3" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#231f1c" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#fdfbf7">
 
 <meta property="og:type" content="website">
 <meta property="og:title" content="個人開発者＠ゆーき — Portfolio">
@@ -20,398 +19,287 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;600&family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;500;700;900&family=Kiwi+Maru:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
 :root {
-  --bg:        oklch(0.975 0.008 75);
-  --bg-2:      oklch(0.950 0.012 72);
-  --ink:       oklch(0.16 0.012 60);
-  --ink-2:     oklch(0.28 0.010 60);
-  --ink-3:     oklch(0.45 0.008 60);
-  --line:      oklch(0.78 0.012 70);
-  --line-2:    oklch(0.88 0.010 70);
-  --accent:    oklch(0.60 0.130 55);
-  --accent-ink:oklch(0.48 0.130 50);
-}
-html[data-theme="dark"] {
-  --bg:        oklch(0.17 0.010 60);
-  --bg-2:      oklch(0.22 0.012 60);
-  --ink:       oklch(0.97 0.008 80);
-  --ink-2:     oklch(0.86 0.010 70);
-  --ink-3:     oklch(0.64 0.010 65);
-  --line:      oklch(0.38 0.010 65);
-  --line-2:    oklch(0.30 0.010 60);
-  --accent:    oklch(0.74 0.130 55);
-  --accent-ink:oklch(0.82 0.120 55);
+  --bg: #fdfbf7;
+  --card: #fff;
+  --ink: #3d3a35;
+  --ink-2: #66604f;
+  --ink-3: #7d7461;
+  --muted: #a09884;
+  --label: #b8ae97;
+  --chip-bg: #f0ebdf;
+  --shadow: 0 6px 24px rgba(80,68,48,.1);
+  --shadow-hover: 0 14px 34px rgba(80,68,48,.16);
+  --accent: oklch(0.6 0.1 60);
 }
 
 * { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
 html, body { margin: 0; padding: 0; }
 body {
-  font-family: "Noto Serif JP", "Hiragino Mincho ProN", "Yu Mincho", serif;
+  font-family: "Kiwi Maru", "Hiragino Maru Gothic ProN", serif;
   background: var(--bg);
   color: var(--ink);
-  font-weight: 400;
-  font-feature-settings: "palt" 1;
-  font-optical-sizing: auto;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
   min-height: 100vh;
-  transition: background 400ms ease, color 400ms ease;
 }
-
-::selection { background: oklch(0.60 0.130 55 / 0.22); color: var(--ink); }
-
-a:focus-visible,
-button:focus-visible {
-  outline: 2px solid var(--accent);
-  outline-offset: 4px;
-  border-radius: 2px;
-}
+::selection { background: oklch(0.85 0.12 60 / 0.35); }
+a { color: inherit; text-decoration: none; }
+a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; border-radius: 4px; }
 
 html[data-lang="ja"] .i18n-en,
 html[data-lang="en"] .i18n-ja { display: none; }
 
-.en { font-family: "EB Garamond", "Noto Serif JP", serif; font-style: italic; letter-spacing: 0.01em; }
-a { color: inherit; text-decoration: none; }
+.gothic { font-family: "Zen Maru Gothic", "Hiragino Maru Gothic ProN", sans-serif; }
 
-.frame {
-  max-width: 720px;
-  margin: 0 auto;
-  padding: 72px 28px 96px;
-}
-@media (max-width: 560px) {
-  .frame { padding: 48px 22px 72px; }
-}
-
+/* topbar */
 .topbar {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 72px;
-  font-size: 13px;
-  color: var(--ink-2);
-  letter-spacing: 0.06em;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 24px 48px; max-width: 1100px; margin: 0 auto;
 }
-.bar-actions { display: flex; gap: 8px; align-items: center; }
-.pill {
-  appearance: none; border: 1px solid var(--line);
-  background: transparent; color: var(--ink-2);
-  padding: 6px 14px;
-  font: inherit; font-size: 11px; letter-spacing: 0.16em;
-  cursor: pointer;
-  border-radius: 999px;
-  transition: all 200ms ease;
-  font-family: "EB Garamond", serif; font-style: italic;
+.topbar-label { font-size: 14px; letter-spacing: .12em; color: var(--muted); }
+.lang-switch {
+  display: flex; background: var(--chip-bg); border-radius: 999px; padding: 4px;
+  font-family: "Zen Maru Gothic", sans-serif; font-size: 12px; font-weight: 700;
+  border: none; cursor: pointer; color: inherit;
 }
-.pill:hover { border-color: var(--accent); color: var(--accent-ink); }
+.lang-switch span { padding: 5px 16px; border-radius: 999px; color: var(--muted); transition: all .2s ease; }
+html[data-lang="ja"] .lang-switch .opt-ja,
+html[data-lang="en"] .lang-switch .opt-en {
+  background: #fff; color: var(--ink); box-shadow: 0 1px 4px rgba(0,0,0,.08);
+}
 
-.hero { margin-bottom: 80px; text-align: center; }
+/* hero */
+.hero { position: relative; padding: 76px 48px 90px; text-align: center; overflow: hidden; }
+.blob { position: absolute; border-radius: 50%; pointer-events: none; }
+.blob-1 { top: -60px; left: -80px; width: 280px; height: 280px; background: oklch(0.93 0.05 60); opacity: .6; }
+.blob-2 { bottom: -100px; right: -60px; width: 320px; height: 320px; background: oklch(0.93 0.05 200); opacity: .5; }
+.hero-inner { position: relative; }
+.avatar-wrap { display: inline-block; position: relative; margin-bottom: 26px; }
 .avatar {
-  width: 72px; height: 72px;
-  border-radius: 50%;
-  margin: 0 auto 28px;
-  background: var(--bg-2);
-  border: 1px solid var(--line);
-  overflow: hidden;
-  display: block;
-  object-fit: cover;
+  width: 128px; height: 128px; border-radius: 50%; border: 5px solid #fff;
+  box-shadow: 0 8px 28px rgba(80,68,48,.18); display: block; object-fit: cover;
 }
-.name-ja {
-  font-size: clamp(30px, 5vw, 40px);
-  font-weight: 600;
-  line-height: 1.2;
-  letter-spacing: 0.02em;
-  margin: 0 0 8px;
-  color: var(--ink);
+.avatar-badge {
+  position: absolute; right: -6px; bottom: 2px; width: 36px; height: 36px;
+  background: oklch(0.85 0.12 60); border: 3px solid #fff; border-radius: 50%;
+  display: grid; place-items: center; font-size: 16px;
 }
-.name-en {
-  font-family: "EB Garamond", serif;
-  font-style: italic;
-  font-size: 16px;
-  color: var(--ink-3);
-  margin-bottom: 28px;
+.hero-kicker {
+  font-size: 13px; letter-spacing: .28em; color: var(--accent);
+  font-family: "Zen Maru Gothic", sans-serif; font-weight: 700; margin-bottom: 14px;
 }
-.tagline {
-  max-width: 460px;
-  margin: 0 auto;
-  font-size: 15px;
-  line-height: 1.9;
-  color: var(--ink-2);
-  text-wrap: pretty;
-}
+.hero-name { font-size: clamp(30px, 5vw, 42px); font-weight: 500; line-height: 1.4; margin: 0; }
+.hero-tagline { font-size: 16.5px; line-height: 2.1; margin: 18px 0 0; color: var(--ink-3); text-wrap: pretty; }
 
-.sec-head {
-  display: flex;
-  align-items: baseline;
-  gap: 16px;
-  margin-bottom: 28px;
-  padding-bottom: 14px;
-  border-bottom: 1px solid var(--line);
-}
-.sec-head .ja {
-  font-size: 15px;
-  font-weight: 600;
-  letter-spacing: 0.14em;
-  color: var(--ink);
-}
+/* sections */
+.section { padding: 0 48px 76px; max-width: 1100px; margin: 0 auto; }
+.sec-head { text-align: center; margin-bottom: 34px; }
+.sec-head .ja { font-size: 26px; font-weight: 500; letter-spacing: .24em; }
 .sec-head .en {
-  color: var(--ink-3);
-  font-size: 13px;
+  font-size: 11.5px; letter-spacing: .3em; color: var(--label);
+  font-family: "Zen Maru Gothic", sans-serif; font-weight: 700; margin-top: 6px;
 }
 
-section { margin-bottom: 64px; }
-
-.works { display: flex; flex-direction: column; }
+/* works */
+.works {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 24px;
+  font-family: "Zen Maru Gothic", sans-serif;
+}
 .work {
-  display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-  gap: 24px;
-  padding: 22px 2px;
-  border-bottom: 1px solid var(--line-2);
-  transition: padding 220ms ease;
+  background: var(--card); border-radius: 26px; padding: 30px 28px;
+  box-shadow: var(--shadow); display: flex; flex-direction: column; gap: 13px;
+  transition: transform .25s ease, box-shadow .25s ease;
 }
-.work:last-child { border-bottom: none; }
-.work:hover { padding-left: 10px; }
-.work:hover .work-arrow { color: var(--accent-ink); transform: translateX(4px); }
+.work:hover { transform: translateY(-6px); box-shadow: var(--shadow-hover); }
+.work-icon { width: 56px; height: 56px; border-radius: 18px; display: grid; place-items: center; font-size: 26px; }
+.work-title { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+.work-name { font-size: 18px; font-weight: 900; }
+.work-pl { font-size: 10.5px; font-weight: 700; padding: 3px 10px; border-radius: 999px; }
+.work-desc { font-size: 13.5px; line-height: 1.95; color: var(--ink-3); text-wrap: pretty; }
+.work-cta { margin-top: auto; font-size: 12.5px; font-weight: 700; }
 
-.work-body { flex: 1; min-width: 0; }
-.work-name {
-  font-size: 18px;
-  font-weight: 600;
-  color: var(--ink);
-  margin-bottom: 6px;
-  letter-spacing: 0.01em;
-}
-.work-name .pl {
-  font-family: "EB Garamond", serif;
-  font-style: italic;
-  font-size: 12px;
-  color: var(--accent-ink);
-  font-weight: 400;
-  margin-left: 10px;
-  letter-spacing: 0.06em;
-}
-.work-desc {
-  font-size: 13px;
-  line-height: 1.8;
-  color: var(--ink-2);
-  text-wrap: pretty;
-  font-variant-numeric: tabular-nums;
-}
-.work-arrow {
-  font-family: "EB Garamond", serif;
-  font-style: italic;
-  font-size: 18px;
-  color: var(--ink-3);
-  transition: transform 220ms ease, color 220ms ease;
-  flex-shrink: 0;
-}
+.tint-warm  { background: oklch(0.93 0.05 40); }  .tint-warm.tx  { color: oklch(0.5 0.12 40); }
+.tint-cool  { background: oklch(0.93 0.05 200); } .tint-cool.tx  { color: oklch(0.5 0.1 230); }
+.tint-green { background: oklch(0.93 0.05 130); } .tint-green.tx { color: oklch(0.45 0.1 140); }
+.cta-warm  { color: oklch(0.55 0.12 40); }
+.cta-cool  { color: oklch(0.5 0.1 230); }
+.cta-green { color: oklch(0.45 0.1 140); }
 
-@media (max-width: 560px) {
-  .work { flex-direction: column; gap: 10px; align-items: stretch; }
-  .work-arrow { align-self: flex-end; }
+/* about */
+.about-card {
+  background: var(--card); border-radius: 26px; padding: 40px 46px;
+  box-shadow: var(--shadow); max-width: 780px; margin: 0 auto;
+  font-size: 14.5px; line-height: 2.3; color: var(--ink-2);
+  font-family: "Zen Maru Gothic", sans-serif; text-wrap: pretty;
 }
+.about-card p { margin: 0; }
+.about-card p + p { margin-top: 1.6em; }
 
-.about-body {
-  font-size: 14px;
-  line-height: 2.0;
-  color: var(--ink-2);
-  text-wrap: pretty;
+/* links */
+.links-row {
+  display: flex; gap: 14px; flex-wrap: wrap; justify-content: center;
+  font-family: "Zen Maru Gothic", sans-serif;
 }
-.about-body p { margin: 0; }
-.about-body p + p { margin-top: 1.4em; }
+.link-pill {
+  padding: 11px 26px; background: var(--card); border-radius: 999px;
+  font-size: 13.5px; font-weight: 700; box-shadow: 0 4px 16px rgba(80,68,48,.1);
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+.link-pill:hover { transform: translateY(-3px); box-shadow: 0 8px 22px rgba(80,68,48,.16); }
 
-.links {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 0;
-  border-top: 1px solid var(--line-2);
-}
-.link {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 18px 4px;
-  border-bottom: 1px solid var(--line-2);
-  font-size: 15px;
-  color: var(--ink);
-  letter-spacing: 0.02em;
-  transition: color 200ms ease, padding 220ms ease;
-}
-.link:nth-child(odd) { border-right: 1px solid var(--line-2); padding-right: 20px; }
-.link:nth-child(even) { padding-left: 20px; }
-.link:hover { color: var(--accent-ink); }
-.link:hover .link-arrow { transform: translate(3px, -3px); color: var(--accent-ink); }
-.link-arrow {
-  font-family: "EB Garamond", serif;
-  font-style: italic;
-  font-size: 14px;
-  color: var(--ink-3);
-  transition: transform 220ms ease, color 220ms ease;
-}
-@media (max-width: 560px) {
-  .links { grid-template-columns: 1fr; }
-  .link:nth-child(odd) { border-right: none; padding-right: 4px; }
-  .link:nth-child(even) { padding-left: 4px; }
-}
-
+/* footer */
 .foot {
-  margin-top: 80px;
-  padding-top: 28px;
-  border-top: 1px solid var(--line);
-  display: flex;
-  justify-content: space-between;
-  font-size: 12px;
-  color: var(--ink-3);
-  letter-spacing: 0.08em;
+  padding: 24px 48px; text-align: center; font-size: 12px; color: var(--muted);
+  font-family: "Zen Maru Gothic", sans-serif;
 }
 
-.reveal {
-  opacity: 0;
-  transform: translateY(12px);
-  transition: opacity 800ms cubic-bezier(.2,.7,.2,1), transform 800ms cubic-bezier(.2,.7,.2,1);
-}
+/* reveal */
+.reveal { opacity: 0; transform: translateY(12px); transition: opacity 800ms cubic-bezier(.2,.7,.2,1), transform 800ms cubic-bezier(.2,.7,.2,1); }
 .reveal.in { opacity: 1; transform: none; }
-
 @media (prefers-reduced-motion: reduce) {
   .reveal { opacity: 1; transform: none; transition: none; }
-  .work, .work-arrow, .link, .link-arrow, .theme-toggle,
-  body { transition: none; }
+  .work, .link-pill { transition: none; }
+}
+
+@media (max-width: 560px) {
+  .topbar { padding: 20px 22px; }
+  .hero { padding: 56px 22px 70px; }
+  .section { padding: 0 22px 64px; }
+  .about-card { padding: 30px 26px; }
 }
 </style>
 </head>
 <body>
 
 <script>
-(function() {
-  var t = localStorage.getItem('yk-theme') || 'light';
-  document.documentElement.setAttribute('data-theme', t);
+(function () {
   var l = localStorage.getItem('yk-lang') || 'ja';
   document.documentElement.setAttribute('data-lang', l);
   document.documentElement.setAttribute('lang', l);
 })();
 </script>
 
-<div class="frame">
+<header class="topbar reveal">
+  <span class="topbar-label">ゆーき — Portfolio · 2026</span>
+  <button class="lang-switch" id="langToggle" aria-label="Toggle language">
+    <span class="opt-ja">JA</span><span class="opt-en">EN</span>
+  </button>
+</header>
 
-  <header class="topbar reveal">
-    <span class="en">Portfolio · 2026</span>
-    <div class="bar-actions">
-      <button class="pill" id="langToggle" aria-label="Toggle language">JA / EN</button>
-      <button class="pill" id="themeToggle" aria-label="Toggle theme">Light / Dark</button>
+<section class="hero reveal">
+  <div class="blob blob-1"></div>
+  <div class="blob blob-2"></div>
+  <div class="hero-inner">
+    <div class="avatar-wrap">
+      <img class="avatar" src="assets/avatar.png" alt="Yuuki" width="128" height="128">
+      <div class="avatar-badge">✦</div>
     </div>
-  </header>
-
-  <section class="hero reveal">
-    <img class="avatar" src="assets/avatar.png" alt="Yuuki" width="72" height="72">
-    <h1 class="name-ja">
+    <div class="hero-kicker">INDIE DEVELOPER · HIROSHIMA</div>
+    <h1 class="hero-name">
       <span class="i18n-ja">個人開発者＠ゆーき</span>
-      <span class="i18n-en">Yuuki</span>
+      <span class="i18n-en">Yuuki — Indie Developer</span>
     </h1>
-    <div class="name-en">
-      <span class="i18n-ja">Yuuki — Independent Developer, Hiroshima</span>
-      <span class="i18n-en">Indie Developer · Hiroshima, Japan</span>
-    </div>
-    <p class="tagline">
-      <span class="i18n-ja">
-        会社員、ときどき個人開発者。<br>
-        AI と二人三脚で、アプリつくってます。
-      </span>
-      <span class="i18n-en">
-        Full-time employee, sometimes indie developer.<br>
-        Building apps side by side with AI.
-      </span>
+    <p class="hero-tagline">
+      <span class="i18n-ja">会社員、ときどき個人開発者。<br>AI と二人三脚で、アプリつくってます。</span>
+      <span class="i18n-en">Full-time employee, sometimes indie developer.<br>Building apps side by side with AI.</span>
     </p>
-  </section>
+  </div>
+</section>
 
-  <section class="reveal">
-    <div class="sec-head">
-      <span class="ja">作 品</span>
-      <span class="en">Works</span>
-    </div>
-    <div class="works">
-      <a class="work" href="https://apps.apple.com/jp/app/ai%E7%94%BB%E5%83%8F%E7%94%9F%E6%88%90-morphica/id6755958732" target="_blank" rel="noopener">
-        <div class="work-body">
-          <div class="work-name">Morphica <span class="pl">iOS</span></div>
-          <div class="work-desc">
-            <span class="i18n-ja">写真を選ぶだけ、ワンタップで AI 画像生成。プロンプト不要、42 種のスタイル＋カスタム対応。</span>
-            <span class="i18n-en">Turn photos into AI-generated art in a single tap. No prompt required — 42+ styles plus custom options.</span>
-          </div>
-        </div>
-        <div class="work-arrow">↗</div>
-      </a>
-      <a class="work" href="https://app-store-manager-dun.vercel.app/" target="_blank" rel="noopener">
-        <div class="work-body">
-          <div class="work-name">App Store Manager <span class="pl">Web</span></div>
-          <div class="work-desc">
-            <span class="i18n-ja">App Store Connect のメタデータを AI で一括翻訳し、そのまま反映。スクリーンショットの翻訳・生成にも対応。</span>
-            <span class="i18n-en">Bulk-translate App Store Connect metadata with AI and push it back in place. Handles screenshot translation and generation too.</span>
-          </div>
-        </div>
-        <div class="work-arrow">↗</div>
-      </a>
-      <a class="work" href="https://www.app-village.jp/" target="_blank" rel="noopener">
-        <div class="work-body">
-          <div class="work-name">App Village <span class="pl">Web</span></div>
-          <div class="work-desc">
-            <span class="i18n-ja">個人開発アプリを紹介し、応援し合えるコミュニティ型プラットフォーム。</span>
-            <span class="i18n-en">A community platform where indie devs showcase their apps and cheer each other on.</span>
-          </div>
-        </div>
-        <div class="work-arrow">↗</div>
-      </a>
-    </div>
-  </section>
-
-  <section class="reveal">
-    <div class="sec-head">
-      <span class="ja">自 己 紹 介</span>
-      <span class="en">About</span>
-    </div>
-    <div class="about-body">
-      <div class="i18n-ja">
-        <p>はじめまして、ゆーきです。広島で会社員として働きながら、個人開発でアプリ制作をしています。もともとエンジニアではなく、5 年ほど前に「何かスキルを身につけたい」と思ったのがプログラミングとの出会いでした。</p>
-        <p>HTML・CSS・JavaScript・WordPress を仕事の合間にコツコツ学び、やがて Web 制作の案件を受けるように。会社の力に頼らず自分の力だけで収益を得られた経験は、大きな自信になりました。今は AI を活用しながら、iOS と Web のアプリ制作に取り組んでいます。</p>
+<section class="section reveal" id="works">
+  <div class="sec-head">
+    <div class="ja"><span class="i18n-ja">作品</span><span class="i18n-en">Works</span></div>
+    <div class="en">WORKS</div>
+  </div>
+  <div class="works">
+    <a class="work" href="https://apps.apple.com/jp/app/ai%E7%94%BB%E5%83%8F%E7%94%9F%E6%88%90-morphica/id6755958732" target="_blank" rel="noopener">
+      <div class="work-icon tint-warm">🎨</div>
+      <div class="work-title">
+        <span class="work-name">Morphica</span>
+        <span class="work-pl tint-warm tx">iOS</span>
       </div>
-      <div class="i18n-en">
-        <p>Hi, I'm Yuuki. I work a full-time job in Hiroshima while building apps as an indie developer on the side. I didn't start out as an engineer — programming found me about five years ago, when I went looking for a skill to call my own.</p>
-        <p>I studied HTML, CSS, JavaScript, and WordPress in the pockets between workdays, and eventually started taking on web production jobs — the first time I earned income entirely on my own. That experience became a quiet source of confidence. These days I build iOS and web apps with AI as my co-pilot.</p>
+      <div class="work-desc">
+        <span class="i18n-ja">写真を選ぶだけ、ワンタップで AI 画像生成。プロンプト不要、42 種のスタイル＋カスタム対応。</span>
+        <span class="i18n-en">Turn photos into AI-generated art in a single tap. No prompt required — 42+ styles plus custom options.</span>
       </div>
-    </div>
-  </section>
+      <div class="work-cta cta-warm">
+        <span class="i18n-ja">App Store で見る →</span>
+        <span class="i18n-en">View on App Store →</span>
+      </div>
+    </a>
+    <a class="work" href="https://app-store-manager-dun.vercel.app/" target="_blank" rel="noopener">
+      <div class="work-icon tint-cool">🌐</div>
+      <div class="work-title">
+        <span class="work-name">App Store Manager</span>
+        <span class="work-pl tint-cool tx">Web</span>
+      </div>
+      <div class="work-desc">
+        <span class="i18n-ja">App Store Connect のメタデータを AI で一括翻訳し、そのまま反映。スクリーンショットの翻訳・生成にも対応。</span>
+        <span class="i18n-en">Bulk-translate App Store Connect metadata with AI and push it back in place. Handles screenshot translation and generation too.</span>
+      </div>
+      <div class="work-cta cta-cool">
+        <span class="i18n-ja">サイトを見る →</span>
+        <span class="i18n-en">Visit site →</span>
+      </div>
+    </a>
+    <a class="work" href="https://www.app-village.jp/" target="_blank" rel="noopener">
+      <div class="work-icon tint-green">🏘️</div>
+      <div class="work-title">
+        <span class="work-name">App Village</span>
+        <span class="work-pl tint-green tx">Web</span>
+      </div>
+      <div class="work-desc">
+        <span class="i18n-ja">個人開発アプリを紹介し、応援し合えるコミュニティ型プラットフォーム。</span>
+        <span class="i18n-en">A community platform where indie devs showcase their apps and cheer each other on.</span>
+      </div>
+      <div class="work-cta cta-green">
+        <span class="i18n-ja">サイトを見る →</span>
+        <span class="i18n-en">Visit site →</span>
+      </div>
+    </a>
+  </div>
+</section>
 
-  <section class="reveal">
-    <div class="sec-head">
-      <span class="ja">各 種 リ ン ク</span>
-      <span class="en">Links</span>
+<section class="section reveal" id="about">
+  <div class="sec-head">
+    <div class="ja"><span class="i18n-ja">自己紹介</span><span class="i18n-en">About</span></div>
+    <div class="en">ABOUT</div>
+  </div>
+  <div class="about-card">
+    <div class="i18n-ja">
+      <p>はじめまして、ゆーきです。広島で会社員として働きながら、個人開発でアプリ制作をしています。もともとエンジニアではなく、5 年ほど前に「何かスキルを身につけたい」と思ったのがプログラミングとの出会いでした。</p>
+      <p>HTML・CSS・JavaScript・WordPress を仕事の合間にコツコツ学び、やがて Web 制作の案件を受けるように。会社の力に頼らず自分の力だけで収益を得られた経験は、大きな自信になりました。今は AI を活用しながら、iOS と Web のアプリ制作に取り組んでいます。</p>
     </div>
-    <div class="links">
-      <a class="link" href="https://x.com/hello__world_0" target="_blank" rel="noopener"><span>X</span><span class="link-arrow">↗</span></a>
-      <a class="link" href="https://www.tiktok.com/@morphica22" target="_blank" rel="noopener"><span>TikTok</span><span class="link-arrow">↗</span></a>
-      <a class="link" href="https://note.com/yuuki04050" target="_blank" rel="noopener"><span>note</span><span class="link-arrow">↗</span></a>
-      <a class="link" href="https://github.com/yuuki45" target="_blank" rel="noopener"><span>GitHub</span><span class="link-arrow">↗</span></a>
-      <a class="link" href="https://apps.apple.com/jp/developer/yuuki-odan/id1833891715" target="_blank" rel="noopener"><span>App Store</span><span class="link-arrow">↗</span></a>
+    <div class="i18n-en">
+      <p>Hi, I'm Yuuki. I work a full-time job in Hiroshima while building apps as an indie developer on the side. I didn't start out as an engineer — programming found me about five years ago, when I went looking for a skill to call my own.</p>
+      <p>I studied HTML, CSS, JavaScript, and WordPress in the pockets between workdays, and eventually started taking on web production jobs — the first time I earned income entirely on my own. That experience became a quiet source of confidence. These days I build iOS and web apps with AI as my co-pilot.</p>
     </div>
-  </section>
+  </div>
+</section>
 
-  <footer class="foot reveal">
-    <span class="en">© 2026 Yuuki</span>
-    <span class="en">Made in Hiroshima</span>
-  </footer>
+<section class="section reveal" id="links">
+  <div class="sec-head">
+    <div class="ja"><span class="i18n-ja">リンク</span><span class="i18n-en">Links</span></div>
+    <div class="en">LINKS</div>
+  </div>
+  <div class="links-row">
+    <a class="link-pill" href="https://x.com/hello__world_0" target="_blank" rel="noopener">X ↗</a>
+    <a class="link-pill" href="https://www.tiktok.com/@morphica22" target="_blank" rel="noopener">TikTok ↗</a>
+    <a class="link-pill" href="https://note.com/yuuki04050" target="_blank" rel="noopener">note ↗</a>
+    <a class="link-pill" href="https://github.com/yuuki45" target="_blank" rel="noopener">GitHub ↗</a>
+    <a class="link-pill" href="https://apps.apple.com/jp/developer/yuuki-odan/id1833891715" target="_blank" rel="noopener">App Store ↗</a>
+  </div>
+</section>
 
-</div>
+<footer class="foot reveal">© 2026 Yuuki · Made in Hiroshima 🍁</footer>
 
 <script>
 (function () {
   const root = document.documentElement;
-
-  document.getElementById('themeToggle')?.addEventListener('click', () => {
-    const next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
-    root.setAttribute('data-theme', next);
-    localStorage.setItem('yk-theme', next);
-  });
 
   document.getElementById('langToggle')?.addEventListener('click', () => {
     const next = root.getAttribute('data-lang') === 'ja' ? 'en' : 'ja';
