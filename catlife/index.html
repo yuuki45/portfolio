@@ -18,7 +18,13 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500&family=Noto+Serif+JP:wght@400;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/site.css?v=17">
+<link rel="stylesheet" href="assets/site.css?v=18">
+<script type="application/ld+json">
+{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "猫の一生アルバム", "operatingSystem": "iOS 17.0 or later", "applicationCategory": "LifestyleApplication", "description": "猫との日々を「年齢」「一緒に暮らした日数」「年」の3つの時間軸で振り返るiPhoneアプリ。", "url": "https://hello-world.design/catlife/", "installUrl": "https://apps.apple.com/jp/app/id6801978439", "image": "https://hello-world.design/catlife/assets/ogp.png", "author": {"@type": "Person", "name": "Yuuki Odan"}, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"}}
+</script>
+<script type="application/ld+json">
+{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "写真はどこに保存されますか？", "acceptedAnswer": {"@type": "Answer", "text": "あなたのiPhoneの中と、あなた自身のiCloud（プライベートデータベース）にだけ保存されます。開発者のサーバーには送られません。"}}, {"@type": "Question", "name": "機種変更したらデータは戻りますか？", "acceptedAnswer": {"@type": "Answer", "text": "同じApple AccountでiCloudにサインインしていれば、新しいiPhoneでアプリを開くと自動で戻ってきます。写真の枚数によっては数分かかることがあります。"}}, {"@type": "Question", "name": "iCloudを使っていなくても使えますか？", "acceptedAnswer": {"@type": "Answer", "text": "使えます。その場合データはiPhoneの中にだけ保存されるので、機種変更やアプリの削除で失われることがあります。大切な記録にはiCloudの有効化をおすすめします。"}}, {"@type": "Question", "name": "Premiumを買い直す必要はありますか？", "acceptedAnswer": {"@type": "Answer", "text": "ありません。同じApple Accountなら、機種変更や再インストールのあとも自動で戻ります。戻らないときは アプリの設定 → デザインテーマ →「購入を復元する」からどうぞ。"}}, {"@type": "Question", "name": "「選択した写真のみ」の許可でも使えますか？", "acceptedAnswer": {"@type": "Answer", "text": "使えます。あとから写真を追加したいときは、アプリ内の写真選択画面から追加できます。"}}, {"@type": "Question", "name": "誕生日がわからない猫でも大丈夫ですか？", "acceptedAnswer": {"@type": "Answer", "text": "大丈夫です。「家族になった頃、何歳くらいだったか」から、だいたいの誕生日を出して「◯歳ごろ」と表示します。断定できないことは、断定しません。"}}, {"@type": "Question", "name": "iPadやAndroidでは使えますか？", "acceptedAnswer": {"@type": "Answer", "text": "iPhone専用です（iOS 17以降）。iPadではiPhone用アプリとして拡大表示で動作します。Android版の予定はいまのところありません。"}}]}
+</script>
 </head>
 <body>
 
@@ -28,6 +34,7 @@
     <nav class="nav">
       <a class="hide-sp" href="#features">できること</a>
       <a class="hide-sp" href="#privacy">プライバシー</a>
+      <a class="hide-sp" href="#articles">読みもの</a>
       <a class="hide-sp" href="#faq">よくある質問</a>
       <a class="hide-sp" href="#contact">お問い合わせ</a>
       <a class="btn small" href="https://apps.apple.com/jp/app/id6801978439" target="_blank" rel="noopener">
@@ -270,6 +277,22 @@
   </div>
 </section>
 
+<!-- 読みもの -->
+<section id="articles">
+  <div class="wrap">
+    <span class="orn orn-yarn" aria-hidden="true"></span>
+    <div class="eyebrow">Articles</div>
+    <h2><span class="nb">猫との時間の、</span><span class="nb">数え方</span></h2>
+    <p class="section-lead">年齢の換算、誕生日がわからないときの決め方、記念日の数え方。アプリを作りながら調べたことをまとめています。</p>
+    <div class="articles">
+      <a href="./age/"><h3>猫の年齢を人間に換算すると何歳？</h3><p>早見表と計算機。1歳＝15歳、2歳＝24歳、以降1年＝4歳。</p></a>
+      <a href="./birthday/"><h3>保護猫の誕生日がわからないときの決め方</h3><p>3つの決め方と、「◯歳ごろ」でいいという考え方。</p></a>
+      <a href="./anniversary/"><h3>猫の記念日一覧と「うちの子記念日」</h3><p>家族になった日から何日目か、計算機つき。100日・1,000日の節目。</p></a>
+      <a href="./memories/"><h3>猫との思い出の残し方、7つ</h3><p>特別じゃない日を撮る。声を録る。◯年前の今日を見返す。</p></a>
+    </div>
+  </div>
+</section>
+
 <!-- お問い合わせ -->
 <section id="contact">
   <div class="wrap contact">
@@ -302,6 +325,7 @@
     <nav>
       <a href="./privacy/">プライバシーポリシー</a>
       <a href="./terms/">利用規約</a>
+      <a href="#articles">読みもの</a>
       <a href="#contact">お問い合わせ</a>
     </nav>
   </div>

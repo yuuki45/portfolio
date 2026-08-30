@@ -490,3 +490,34 @@ br.pc { display: none; }                    /* PCだけ改行したい位置 */
   .premium-mark { width: 100px; }
   .ph::after { background-size: 24px 24px; }
 }
+
+/* ---- 読みもの（2026-08-30） ---- */
+.crumbs { color: var(--sub); font-size: 0.85rem; margin: 0 0 18px; }
+.article h1 { font-size: 1.7rem; line-height: 1.45; }
+.article .h-sub { display: block; font-size: 1.05rem; color: var(--sub); font-weight: 400; margin-top: 6px; }
+.lead-doc { font-size: 1.02rem; margin: 18px 0 8px; }
+.calc { background: var(--card); border: 1px solid var(--sep); border-radius: 18px; padding: 20px 22px; margin: 22px 0 28px; }
+.calc label { display: block; font-size: 0.85rem; color: var(--sub); margin-bottom: 6px; }
+.calc-row { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+.calc input { font: inherit; font-size: 1.1rem; padding: 8px 10px; border: 1px solid var(--sep); border-radius: 10px; background: #fff; color: var(--text); width: 6em; }
+.calc input[type="date"] { width: auto; }
+.calc-result { margin: 14px 0 0; font-size: 1.05rem; }
+.calc-result strong { font-family: var(--serif); font-size: 1.5rem; color: var(--accent-deep); }
+.tbl { width: 100%; border-collapse: collapse; margin: 10px 0 8px; font-size: 0.95rem; }
+.tbl th, .tbl td { text-align: left; padding: 9px 10px; border-bottom: 1px solid var(--sep); vertical-align: top; }
+.tbl thead th { color: var(--sub); font-weight: 500; font-size: 0.8rem; }
+.tbl tbody th { font-weight: 600; white-space: nowrap; width: 7em; }
+.app-cta { display: flex; gap: 18px; align-items: flex-start; background: var(--card); border: 1px solid var(--sep); border-radius: 18px; padding: 22px; margin: 44px 0 20px; }
+.app-cta img { width: 64px; height: 64px; border-radius: 15px; flex: none; }
+.app-cta p { margin: 0 0 6px; }
+.app-cta .btn { margin-top: 8px; }
+.articles { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; }
+.articles a { display: block; background: var(--card); border: 1px solid var(--sep); border-radius: 18px; padding: 20px 22px; color: var(--text); }
+.articles a:hover { text-decoration: none; border-color: var(--accent); }
+.articles h3 { margin: 0 0 6px; }
+.articles p { margin: 0; color: var(--sub); font-size: 0.9rem; }
+@media (max-width: 640px) {
+  .articles { grid-template-columns: 1fr; }
+  .app-cta { flex-direction: column; }
+  .article h1 { font-size: 1.4rem; }
+}
